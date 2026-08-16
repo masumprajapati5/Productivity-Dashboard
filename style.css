@@ -1,0 +1,1593 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* ===================================================
+   APPLE macOS / VisionOS LIQUID GLASS DESIGN SYSTEM
+====================================================== */
+
+:root {
+    /* Light Theme - Luminous Liquid Glass */
+    --glass-fullpage: rgba(255, 255, 255, 0.68);
+    --glass-card: rgba(255, 255, 255, 0.58);
+    --glass-card-subtle: rgba(255, 255, 255, 0.48);
+    --glass-input: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.65);
+    --glass-border-subtle: rgba(255, 255, 255, 0.45);
+    --glass-nav: rgba(255, 255, 255, 0.4);
+    --glass-elem: rgba(255, 255, 255, 0.5);
+    --glass-elem-hover: rgba(255, 255, 255, 0.78);
+    --glass-specular: rgba(255, 255, 255, 0.85);
+
+    --text-main: #0f172a;
+    --text-muted: #334155;
+    --text-subtle: #475569;
+    --btn-bg: #0f172a;
+    --btn-text: #ffffff;
+    --btn-hover: #1e293b;
+
+    --accent: #2563eb;
+    --accent-glow: rgba(37, 99, 235, 0.25);
+    --success: #10b981;
+    --danger: #ef4444;
+
+    /* Dynamic Aliases */
+    --pri: var(--text-main);
+    --sec: var(--glass-fullpage);
+    --tri1: var(--btn-bg);
+    --tri2: var(--glass-card);
+    --card-bg: var(--glass-card);
+    --card-border: var(--glass-border);
+    --elem-bg: var(--glass-elem);
+    --elem-hover-bg: var(--glass-elem-hover);
+    --text-sub: var(--text-muted);
+}
+
+/* Dark Theme - Deep Atmospheric Obsidian Glass */
+html.dark-theme,
+body.dark-theme {
+    --glass-fullpage: rgba(10, 15, 26, 0.78);
+    --glass-card: rgba(18, 26, 44, 0.62);
+    --glass-card-subtle: rgba(24, 34, 58, 0.55);
+    --glass-input: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --glass-border-subtle: rgba(255, 255, 255, 0.1);
+    --glass-nav: rgba(12, 18, 32, 0.6);
+    --glass-elem: rgba(18, 26, 44, 0.68);
+    --glass-elem-hover: rgba(30, 42, 70, 0.88);
+    --glass-specular: rgba(255, 255, 255, 0.2);
+
+    --text-main: #ffffff;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
+    --btn-bg: #ffffff;
+    --btn-text: #0f172a;
+    --btn-hover: #f1f5f9;
+
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.35);
+
+    --pri: var(--text-main);
+    --sec: var(--glass-fullpage);
+    --tri1: var(--btn-bg);
+    --tri2: var(--glass-card);
+    --card-bg: var(--glass-card);
+    --card-border: var(--glass-border);
+    --elem-bg: var(--glass-elem);
+    --elem-hover-bg: var(--glass-elem-hover);
+    --text-sub: var(--text-muted);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #0b0f19;
+}
+
+#main {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===================================================
+   NAVIGATION BAR (Liquid Glass Header)
+====================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    height: 60px;
+    width: 100%;
+}
+
+.nav-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--glass-nav);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid var(--glass-border-subtle);
+    padding: 10px clamp(16px, 3vw, 28px);
+    height: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), inset 0 1px 0 var(--glass-specular);
+    transition: all 0.35s ease;
+}
+
+.nav-in h2 {
+    font-size: clamp(18px, 3.5vw, 22px);
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: -0.2px;
+}
+
+.theme {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.theme-toggle {
+    width: 68px;
+    height: 34px;
+    background-color: var(--glass-card-subtle);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 34px;
+    padding: 3px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.35s ease;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    border-color: var(--text-main);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.theme-toggle .track-icon {
+    font-size: 14px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    pointer-events: none;
+    color: var(--text-muted);
+}
+
+.theme-toggle .track-icon.sun {
+    opacity: 0.7;
+}
+
+.theme-toggle .track-icon.moon {
+    opacity: 0.7;
+}
+
+.theme-toggle .toggle-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.theme-toggle .knob-icon-sun,
+.theme-toggle .knob-icon-moon {
+    position: absolute;
+    font-size: 15px;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.theme-toggle .knob-icon-sun {
+    color: #0f172a;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle .knob-icon-moon {
+    color: #ffffff;
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.4);
+}
+
+/* Dark Mode Toggle Switch State */
+.theme-toggle.dark-mode {
+    background-color: rgba(20, 28, 48, 0.8);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.theme-toggle.dark-mode .track-icon.sun {
+    color: #94a3b8;
+    opacity: 0.6;
+}
+
+.theme-toggle.dark-mode .track-icon.moon {
+    color: #f8fafc;
+    opacity: 0.85;
+}
+
+.theme-toggle.dark-mode .toggle-knob {
+    transform: translateX(34px);
+    background-color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.theme-toggle.dark-mode .knob-icon-sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.4);
+}
+
+.theme-toggle.dark-mode .knob-icon-moon {
+    opacity: 1;
+    color: #ffffff;
+    transform: rotate(0deg) scale(1);
+}
+
+/* ===================================================
+   BACKGROUND SKY (Dynamic Wallpaper & Ambient Filter)
+====================================================== */
+.bg-sky {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: filter .3s ease;
+}
+
+.bg-sky::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.16);
+    z-index: 2;
+    pointer-events: none;
+    transition: background-color 0.35s ease;
+}
+
+html.dark-theme .bg-sky::after,
+body.dark-theme .bg-sky::after {
+    background: rgba(0, 0, 0, 0.42);
+}
+
+.bg-sky img {
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+.bg-sky #sec {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.allElems:hover .bg-sky {
+    filter: blur(0);
+}
+
+.allElems:hover .bg-sky #sec {
+    opacity: 1;
+}
+
+/* ===================================================
+   DASHBOARD SECTION (Weather + Minimalist Sidebar)
+====================================================== */
+section.allElems {
+    min-height: calc(100vh - 60px);
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    z-index: 5;
+}
+
+header {
+    padding: 0;
+    z-index: 9;
+    flex-shrink: 1;
+}
+
+header .weather {
+    width: min(750px, calc(100vw - 200px));
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: clamp(22px, 3vw, 35px);
+    border-radius: 18px;
+    border: 1px solid var(--glass-border);
+    background-color: var(--glass-card);
+    backdrop-filter: blur(28px) saturate(180%); 
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 var(--glass-specular);
+    transition: all 0.35s ease;
+}
+
+header .header1 {
+    padding: 5px;
+    flex: 1;
+}
+
+header .header1 h1 {
+    font-size: clamp(28px, 4.5vw, 50px);
+    margin-bottom: 25px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+header .header1 h2 {
+    font-size: clamp(15px, 2vw, 18px);
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+header .header1 h4 {
+    font-weight: 400;
+    font-size: clamp(17px, 2.3vw, 22px);
+    color: var(--text-main);
+    opacity: 0.92;
+}
+
+header .header2 {
+    flex-shrink: 0;
+}
+
+header .header2 h1 {
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+header .header2 h2 {
+    font-size: clamp(19px, 2.3vw, 26px);
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: var(--text-main);
+}
+
+header .header2 h3 {
+    font-size: clamp(14px, 1.8vw, 15px);
+    font-weight: 300;
+    margin-top: 4px;
+    color: var(--text-main);
+    opacity: 0.88;
+}
+
+/* ===================================================
+   MINIMALIST FLOATING SIDEBAR (Individual Liquid Glass Cards)
+====================================================== */
+.allFeatures {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 14px;
+    border-radius: 0;
+    max-height: calc(100vh - 100px);
+    overflow-y: visible;
+    z-index: 10;
+    border: none;
+    box-shadow: none;
+    min-width: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.allFeatures::-webkit-scrollbar {
+    display: none;
+}
+
+.elem { 
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 20px 8px 8px;
+    background-color: var(--glass-elem);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), inset 0 1px 0 var(--glass-specular);
+    user-select: none;
+    min-width: 220px;
+}
+
+.elem:hover {
+    background-color: var(--glass-elem-hover);
+    border-color: var(--text-main);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18), inset 0 1px 0 var(--glass-specular);
+    transform: translateX(-10px) scale(1.03);
+}
+
+.elem:active {
+    transform: translateX(-4px) scale(0.98);
+}
+
+.elem .elem-img-wrapper {
+    width: 68px;
+    height: 68px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: var(--glass-card-subtle);
+}
+
+.elem .elem-img-wrapper img,
+.elem .elem-img-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.elem:hover .elem-img-wrapper video {
+    opacity: 1;
+}
+
+.elem .elem-img-wrapper video {
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.elem .elem-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-main);
+    letter-spacing: -0.1px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* ===================================================
+   FULLSCREEN MODAL OVERLAYS (Atmospheric Liquid Glass)
+====================================================== */
+.fullElem {
+    height: 100%;
+    width: 100%;
+    background-color: var(--glass-fullpage);
+    backdrop-filter: blur(35px) saturate(180%);
+    -webkit-backdrop-filter: blur(35px) saturate(180%);
+    padding: clamp(24px, 4vw, 48px);
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: all 0.35s ease;
+}
+
+.back {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: var(--glass-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 0 var(--glass-specular);
+    transition: all 0.2s ease;
+}
+
+.back i {
+    font-size: 24px;
+    color: var(--text-main);
+    transition: color 0.2s ease;
+}
+
+.back:hover {
+    background-color: var(--danger);
+    border-color: var(--danger);
+}
+
+.back:hover i {
+    color: #ffffff;
+}
+
+.back:active {
+    transform: scale(0.95);
+}
+
+.fullElem h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 600;
+    max-width: calc(100% - 60px);
+    line-height: 1.2;
+    color: var(--text-main);
+    letter-spacing: -0.4px;
+}
+
+/* ===================================================
+   1. TODO LIST SECTION
+====================================================== */
+.todo-list-fullpage .todo-container {
+    width: 100%;
+    min-height: 75%;
+    margin-top: 25px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.todo-list-fullpage .todo-container .addTask {
+    width: 35%;
+    background-color: var(--glass-card);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), inset 0 1px 0 var(--glass-specular);
+}
+
+.todo-list-fullpage .todo-container .addTask form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(20px, 3vw, 32px);
+    height: 100%;
+}
+
+.todo-container .addTask form #task-input {
+    padding: 12px 18px;
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--glass-input);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.todo-container .addTask form #task-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.todo-container .addTask form textarea {
+    padding: 12px 18px;
+    min-height: 140px;
+    width: 100%;
+    font-size: 15px;
+    background-color: var(--glass-input);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    resize: none;
+}
+
+.todo-container .addTask form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.todo-container .addTask form button {
+    padding: 12px 25px;
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-radius: 9px;
+    border: none;
+    outline: none;
+    margin-top: auto;
+    font-weight: 300;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: all ease 0.25s;
+}
+
+.todo-container .addTask form button:hover {
+    background-color: var(--btn-hover);
+}
+
+.todo-list-fullpage .todo-container .allTask {
+    width: 63%;
+    background-color: var(--glass-card);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    min-height: 350px;
+    max-height: calc(100vh - 180px);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(20px, 3vw, 32px);
+    overflow-y: auto;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), inset 0 1px 0 var(--glass-specular);
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--glass-card-subtle);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-subtle);
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.task.completed {
+    opacity: 0.7;
+}
+
+.task.completed h5 {
+    text-decoration: line-through;
+}
+
+.task h5 {
+    flex: 1;
+    min-width: 0;
+    color: var(--text-main);
+    font-size: clamp(16px, 2.3vw, 18px);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-weight: 400;
+}
+
+.task h5 span {
+    color: #ffffff;
+    background-color: var(--danger);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 300;
+}
+
+.task h5 span.true {
+    display: inline-block;
+}
+
+.task h5 span.false {
+    display: none;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.task button {
+    padding: 8px 14px;
+    color: var(--btn-text);
+    background-color: var(--btn-bg);
+    font-size: 13px;
+    border-radius: 5px;
+    font-weight: 300;
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.task button:hover {
+    background-color: var(--btn-hover);
+}
+
+.task button.task-complete-btn.completed {
+    background-color: var(--success);
+    color: #ffffff !important;
+}
+
+.task button.task-complete-btn.completed i {
+    color: #ffffff !important;
+}
+
+.task button.task-delete-btn {
+    background-color: var(--danger);
+    color: #ffffff !important;
+    padding: 8px 12px;
+}
+
+.task button.task-delete-btn i {
+    color: #ffffff !important;
+    font-size: 15px;
+}
+
+.task button.task-delete-btn:hover {
+    filter: brightness(1.1);
+}
+
+.mark-imp {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 0;
+    margin-bottom: 16px;
+    width: 100%;
+    gap: 12px;
+}
+
+.mark-imp input {
+    scale: 1.3;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.mark-imp label {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-main);
+}
+
+/* ===================================================
+   2. DAILY PLANNER SECTION (Liquid Glass Agenda Grid)
+====================================================== */
+.daily-planner-fullpage .day-planner {
+    background-color: var(--glass-card);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    min-height: 75%;
+    max-height: calc(100vh - 160px);
+    margin-top: 25px;
+    width: 100%;
+    border-radius: 15px;
+    padding: clamp(16px, 2.5vw, 28px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 18px;
+    align-content: start;
+    overflow-y: auto;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), inset 0 1px 0 var(--glass-specular);
+}
+
+.daily-planner-fullpage .day-planner::-webkit-scrollbar {
+    width: 6px;
+}
+
+.daily-planner-fullpage .day-planner::-webkit-scrollbar-thumb {
+    background-color: var(--glass-border);
+    border-radius: 10px;
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--glass-card-subtle);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-subtle);
+    border-radius: 8px;
+    padding: 10px 14px;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time:hover {
+    border-color: var(--glass-border);
+    background-color: var(--glass-input);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time.current-hour {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1.5px var(--accent), 0 4px 16px var(--accent-glow);
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time .planner-time-col {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 4px 10px;
+    background-color: var(--glass-card);
+    border: 1px solid var(--glass-border-subtle);
+    border-radius: 5px;
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time.current-hour .planner-time-col {
+    background-color: var(--btn-bg);
+    border-color: var(--btn-bg);
+}
+
+.daily-planner-fullpage .day-planner .day-planner-time.current-hour .planner-time-col .planner-time-text {
+    color: var(--btn-text);
+    font-weight: 400;
+}
+
+.planner-time-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.day-planner .day-planner-time input {
+    width: 100%;
+    padding: 6px 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+    color: var(--text-main);
+}
+
+.day-planner .day-planner-time input::placeholder {
+    color: var(--text-muted);
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+/* ===================================================
+   3. MOTIVATION QUOTE SECTION
+====================================================== */
+.motivational-fullpage {
+    overflow: hidden;
+    padding: 0;
+}
+
+.motivation-fullPage-container {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.motivational-fullpage .motivation-container {
+    width: min(750px, 95%);
+    min-height: 220px;
+    position: relative;
+}
+
+.motivational-fullpage .motivation-container::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: var(--accent);
+    border-radius: 20px;
+    scale: 1.04;
+    filter: blur(50px);
+    opacity: 0.15;
+    z-index: 8;
+}
+
+.motivational-fullpage .motivation-container .motivation-wrapper {
+    z-index: 10;
+    position: relative;
+    border-radius: 15px;
+    width: 100%;
+    padding: clamp(26px, 4.5vw, 44px);
+    background-color: var(--glass-card);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12), inset 0 1px 0 var(--glass-specular);
+}
+
+.motivation-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.motivation-1 h2 {
+    background-color: var(--glass-card-subtle);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-subtle);
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: clamp(14px, 1.8vw, 20px);
+    font-weight: 400;
+    color: var(--text-main);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.motivation-2 {
+    padding: 26px 0 18px;
+    text-align: center;
+}
+
+.motivation-2 h3 {
+    font-size: clamp(20px, 3.2vw, 25px);
+    font-weight: 200;
+    color: var(--text-main);
+    line-height: 1.45;
+    text-align: center;
+    font-family: cursive;
+}
+
+.motivation-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.motivation-3 h3 {
+    background-color: var(--glass-card-subtle);
+    border: 1px solid var(--glass-border-subtle);
+    color: var(--text-muted);
+    padding: 6px 18px;
+    border-radius: 5px;
+    font-size: clamp(13px, 1.8vw, 15px);
+    font-weight: 200;
+    text-align: center;
+}
+
+.motivation-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.new-quote-btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 300;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.new-quote-btn i {
+    color: var(--btn-text);
+    font-size: 17px;
+}
+
+.new-quote-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+.new-quote-btn:active {
+    scale: 0.96;
+}
+
+/* ===================================================
+   4. POMODORO TIMER SECTION
+====================================================== */
+.pomodoro-fullpage {
+    overflow: hidden;
+    padding: 0;
+}
+
+.pomodoro-fullpage .pomodoro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pomodoro-fullpage .session {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: var(--glass-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 8px 26px;
+    font-size: clamp(16px, 2.5vw, 20px);
+    border-radius: 8px;
+    font-weight: 400;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06), inset 0 1px 0 var(--glass-specular);
+}
+
+.pomodoro-fullpage .pomo-time {
+    width: 100%;
+    text-align: center;
+}
+
+.pomo-time h1 {
+    font-size: clamp(64px, 15vw, 150px);
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 25px;
+}
+
+.pomo-time button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    padding: 10px clamp(20px, 4vw, 32px);
+    font-size: clamp(15px, 2.5vw, 17px);
+    margin: 8px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: all ease 0.2s;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.pomo-time button:hover {
+    background-color: var(--btn-hover);
+}
+
+.pomo-time button:active {
+    transform: scale(0.93);
+}
+
+/* ===================================================
+   5. DAILY GOALS SECTION
+====================================================== */
+.goals-header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-right: 75px;
+}
+
+.goals-header-wrap h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: -0.4px;
+}
+
+.goals-progress-box {
+    background-color: var(--glass-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    padding: 12px 20px;
+    border-radius: 9px;
+    min-width: 250px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06), inset 0 1px 0 var(--glass-specular);
+}
+
+.goals-progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.goals-progress-track {
+    width: 100%;
+    height: 8px;
+    background-color: var(--glass-card-subtle);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.goals-progress-fill {
+    height: 100%;
+    background-color: var(--success);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.daily-goals-fullpage .daily-container {
+    width: 100%;
+    min-height: 75%;
+    margin-top: 25px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.daily-goals-fullpage .daily-container .addgoals {
+    width: 35%;
+    background-color: var(--glass-card);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), inset 0 1px 0 var(--glass-specular);
+}
+
+.daily-goals-fullpage .daily-container .addgoals form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(20px, 3vw, 32px);
+    height: 100%;
+}
+
+.daily-container .addgoals form #goals-input {
+    padding: 12px 18px;
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--glass-input);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.daily-container .addgoals form #goals-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.daily-container .addgoals form textarea {
+    padding: 12px 18px;
+    min-height: 160px;
+    width: 100%;
+    font-size: 15px;
+    background-color: var(--glass-input);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 16px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    resize: none;
+}
+
+.daily-container .addgoals form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.daily-container .addgoals form button {
+    padding: 12px 25px;
+    width: 100%;
+    font-size: 16px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-radius: 9px;
+    border: none;
+    outline: none;
+    margin-top: auto;
+    font-weight: 300;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: all ease 0.25s;
+}
+
+.daily-container .addgoals form button:hover {
+    background-color: var(--btn-hover);
+}
+
+.daily-goals-fullpage .daily-container .allgoals {
+    width: 63%;
+    background-color: var(--glass-card);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    min-height: 350px;
+    max-height: calc(100vh - 200px);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(20px, 3vw, 32px);
+    overflow-y: auto;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), inset 0 1px 0 var(--glass-specular);
+}
+
+.daily-goals {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--glass-card-subtle);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-subtle);
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.daily-goals.completed {
+    opacity: 0.7;
+}
+
+.daily-goals.completed .d-goals h2,
+.daily-goals.completed .d-goals h5 {
+    text-decoration: line-through;
+}
+
+.daily-goals .d-goals {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.daily-goals .d-goals h2 {
+    color: var(--text-main);
+    font-size: clamp(16px, 2.3vw, 18px);
+    font-weight: 400;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.daily-goals .d-goals h5 {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 300;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.goal-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.daily-goals button {
+    padding: 7px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-radius: 5px;
+    border: none;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.daily-goals button i {
+    font-size: 18px;
+    color: var(--btn-text);
+}
+
+.daily-goals button.goal-toggle-btn.done {
+    background-color: var(--success);
+}
+
+.daily-goals button.goal-toggle-btn.done i {
+    color: #ffffff !important;
+}
+
+.daily-goals button.goal-delete-btn {
+    background-color: var(--danger);
+    color: #ffffff !important;
+}
+
+.daily-goals button.goal-delete-btn i {
+    color: #ffffff !important;
+}
+
+.daily-goals button.goal-delete-btn:hover {
+    filter: brightness(1.1);
+}
+
+/* ===================================================
+   RESPONSIVE BREAKPOINTS (Tablets, iPads, Mobile, Desktop)
+====================================================== */
+
+/* Touch and mobile responsiveness optimizations */
+button,
+.elem,
+.theme-toggle,
+input,
+textarea {
+    touch-action: manipulation;
+}
+
+/* Tablets, iPads & Medium Screens (<= 1024px) */
+@media (max-width: 1024px) {
+    /* Completely eliminate video decoding & 30MB GIF layers on mobile */
+    .elem .elem-img-wrapper video,
+    .bg-sky #sec {
+        display: none !important;
+    }
+
+    /* Reduce GPU Gaussian blur passes from 24px-35px down to lightweight 8px for 60fps mobile rendering */
+    .nav-in,
+    .theme-toggle,
+    header .weather,
+    .elem,
+    .fullElem,
+    .todo-list-fullpage .todo-container .addTask,
+    .todo-list-fullpage .todo-container .allTask,
+    .task,
+    .daily-planner-fullpage .day-planner,
+    .daily-planner-fullpage .day-planner .day-planner-time,
+    .motivational-fullpage .motivation-container .motivation-wrapper,
+    .motivation-1 h2,
+    .pomodoro-fullpage .session,
+    .goals-progress-box,
+    .daily-goals-fullpage .daily-container .addgoals,
+    .daily-goals-fullpage .daily-container .allgoals,
+    .daily-goals {
+        backdrop-filter: blur(8px) saturate(140%) !important;
+        -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
+    }
+
+    section.allElems {
+        position: relative;
+        top: 0;
+        margin-top: 60px;
+        min-height: calc(100vh - 60px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 24px 20px 40px;
+        gap: 25px;
+    }
+
+    header {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    header .weather {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px;
+    }
+
+    header .header2 {
+        width: 100%;
+        border-top: 1px solid var(--glass-border-subtle);
+        padding-top: 14px;
+    }
+
+    .allFeatures {
+        position: static;
+        width: 100%;
+        max-width: 650px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 12px;
+        max-height: none;
+        padding: 0;
+        border-radius: 0;
+        min-width: 0;
+        align-items: stretch;
+    }
+
+    .elem {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 14px 10px;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
+        border-radius: 14px;
+    }
+
+    .elem:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+
+    .elem .elem-img-wrapper {
+        width: 68px;
+        height: 68px;
+    }
+
+    .elem .elem-title {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .todo-list-fullpage .todo-container,
+    .daily-goals-fullpage .daily-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .todo-list-fullpage .todo-container .addTask,
+    .todo-list-fullpage .todo-container .allTask,
+    .daily-goals-fullpage .daily-container .addgoals,
+    .daily-goals-fullpage .daily-container .allgoals {
+        width: 100%;
+        max-height: none;
+    }
+
+    .todo-list-fullpage .todo-container .allTask,
+    .daily-goals-fullpage .daily-container .allgoals {
+        min-height: 250px;
+    }
+
+    .daily-planner-fullpage .day-planner {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .goals-header-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-right: 0;
+    }
+
+    .goals-progress-box {
+        width: 100%;
+    }
+}
+
+/* Touch-Only Devices Optimization */
+@media (hover: none) {
+    .elem .elem-img-wrapper video,
+    .bg-sky #sec {
+        display: none !important;
+    }
+
+    .elem:hover,
+    .theme-toggle:hover,
+    .task:hover,
+    .daily-planner-fullpage .day-planner .day-planner-time:hover {
+        transform: none !important;
+    }
+}
+
+/* Small Phones (<= 480px) */
+@media (max-width: 480px) {
+    .nav-in h2 {
+        font-size: 18px;
+    }
+
+    .fullElem {
+        padding: 18px;
+    }
+
+    .back {
+        top: 18px;
+        right: 18px;
+        padding: 6px 10px;
+    }
+
+    .task,
+    .daily-goals {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .task > div:first-child,
+    .daily-goals .d-goals {
+        width: 100%;
+        min-width: 100%;
+        display: block;
+    }
+
+    .task-actions,
+    .goal-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .pomo-time button {
+        padding: 8px 16px;
+        font-size: 15px;
+    }
+}

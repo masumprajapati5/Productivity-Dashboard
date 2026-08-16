@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="main">
+        <nav>
+            <div class="nav-in">
+                <h2>Productivity Dashboard</h2>
+                <div class="theme">
+                    <div class="theme-toggle" id="theme-toggle" role="button" tabindex="0" title="Toggle Light / Dark Mode" aria-label="Toggle Light and Dark Mode">
+                        <i class="ri-sun-line track-icon sun"></i>
+                        <i class="ri-moon-line track-icon moon"></i>
+                        <div class="toggle-knob">
+                            <i class="ri-sun-fill knob-icon-sun"></i>
+                            <i class="ri-moon-fill knob-icon-moon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="allElems">
+            <header>
+                <div class="weather">
+                    <div class="header1">
+                        <h2>--</h2>
+                        <h1>--</h1>
+                        <h4>Detecting location...</h4>
+                    </div>
+
+                    <div class="header2">
+                        <h1>--°C</h1>
+                        <h2>Loading weather...</h2>
+                        <h3 class="precipitation">Precipitation: --</h3>
+                        <h3 class="humidity">Humidity: --%</h3>
+                        <h3 class="wind">Wind: -- km/h</h3>
+                    </div>
+                </div>
+
+            </header>
+
+            <div class="allFeatures">
+                <div class="todo elem" data-id="0" role="button" tabindex="0" title="Open To-Do List">
+                    <div class="elem-img-wrapper">
+                        <img src="assets/images/todoLight.webp" alt="To Do List" loading="lazy">
+                        <video data-src="assets/videos/todovideo.mp4" muted loop playsinline preload="none"></video>
+                    </div>
+                    <span class="elem-title">To-Do List</span>
+                </div>
+                <div class="daily elem" data-id="1" role="button" tabindex="0" title="Open Daily Planner">
+                    <div class="elem-img-wrapper">
+                        <img src="assets/images/dailyplanLight.webp" alt="Daily Planner" loading="lazy">
+                        <video data-src="assets/videos/dailyplannervideo.mp4" muted loop playsinline preload="none"></video>
+                    </div>
+                    <span class="elem-title">Daily Planner</span>
+                </div>
+                <div class="moti elem" data-id="2" role="button" tabindex="0" title="Open Motivation Quotes">
+                    <div class="elem-img-wrapper">
+                        <img src="assets/images/motivationLight.webp" alt="Motivation" loading="lazy">
+                        <video data-src="assets/videos/motivationvideo.mp4" muted loop playsinline preload="none"></video>
+                    </div>
+                    <span class="elem-title">Motivation</span>
+                </div>
+                <div class="pomo elem" data-id="3" role="button" tabindex="0" title="Open Pomodoro Timer">
+                    <div class="elem-img-wrapper">
+                        <img src="assets/images/pomoLight.webp" alt="Pomodoro Timer" loading="lazy">
+                        <video data-src="assets/videos/pomodorovideo.mp4" muted loop playsinline preload="none"></video>
+                    </div>
+                    <span class="elem-title">Pomodoro</span>
+                </div>
+                <div class="goals elem" data-id="4" role="button" tabindex="0" title="Open Daily Goals">
+                    <div class="elem-img-wrapper">
+                        <img src="assets/images/goalLight.webp" alt="Daily Goals" loading="lazy">
+                        <video data-src="assets/videos/dailygoalsvideo.mp4" muted loop playsinline preload="none"></video>
+                    </div>
+                    <span class="elem-title">Daily Goals</span>
+                </div>
+            </div>
+
+            <div class="bg-sky">
+                <img id="first" src="assets/images/morningimg.webp" alt="Sky background">
+                <img id="sec" alt="Sky animation" loading="lazy">
+            </div>
+        </section>
+
+        <section class="fullElem todo-list-fullpage">
+            <button class="back"><i class="ri-close-fill"></i></button>
+            <h2>Your Task List</h2>
+            <div class="todo-container">
+                <div class="addTask">
+                    <form>
+                        <input id="task-input" type="text" placeholder="Enter Task" required>
+                        <textarea placeholder="Enter Details" id="task-details"></textarea>
+                        <div class="mark-imp">
+                            <input type="checkbox" id="check">
+                            <label for="check">Mark as Important</label>
+                        </div>
+                        <button type="submit">Add Task</button>
+                    </form>
+                </div>
+                <div class="allTask">
+                </div>
+            </div>
+        </section>
+        <section class="fullElem daily-planner-fullpage">
+            <button class="back"><i class="ri-close-fill"></i></button>
+            <h2>Plan your Day</h2>
+
+            <div class="day-planner">
+
+            </div>
+
+        </section>
+        <section class="fullElem motivational-fullpage">
+            <button class="back"><i class="ri-close-fill"></i></button>
+            <div class="motivation-fullPage-container">
+                <div class="motivation-container">
+                    <div class="motivation-wrapper">
+                        <div class="motivation-1">
+                            <h2>Quote of the Day</h2>
+                        </div>
+                        <div class="motivation-2">
+                            <h3>Loading quote...</h3>
+                        </div>
+                        <div class="motivation-3">
+                            <h3></h3>
+                        </div>
+                        <div class="motivation-4">
+                            <button class="new-quote-btn" id="new-quote-btn" title="Get New Quote"><i class="ri-refresh-line"></i> New Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="fullElem pomodoro-fullpage">
+            <button class="back"><i class="ri-close-fill"></i></button>
+            <div class="pomodoro-container">
+                <h4 class="session">Work Session</h4>
+                <div class="pomo-time">
+                    <h1>25:00</h1>
+                    <button class="start-timer">Start</button>
+                    <button class="pause-timer">Pause</button>
+                    <button class="reset-timer">Reset</button>
+                </div>
+            </div>
+        </section>
+        <section class="fullElem daily-goals-fullpage">
+            <button class="back"><i class="ri-close-fill"></i></button>
+            <div class="goals-header-wrap">
+                <h2>Daily Goals</h2>
+                <div class="goals-progress-box">
+                    <div class="goals-progress-header">
+                        <span class="goals-progress-text">0 of 0 Completed (0%)</span>
+                    </div>
+                    <div class="goals-progress-track">
+                        <div class="goals-progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="daily-container">
+                <div class="addgoals">
+                    <form>
+                        <input id="goals-input" type="text" placeholder="Enter goals" required>
+                        <textarea placeholder="Enter your goals" id="goals-details"></textarea>
+                        <button type="submit">Add Goal</button>
+                    </form>
+                </div>
+                <div class="allgoals">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
