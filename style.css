@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-/* ===================================================
-   APPLE macOS / VisionOS LIQUID GLASS DESIGN SYSTEM
-====================================================== */
+
+
 
 :root {
-    /* Light Theme - Luminous Liquid Glass */
+
     --glass-fullpage: rgba(255, 255, 255, 0.68);
     --glass-card: rgba(255, 255, 255, 0.58);
     --glass-card-subtle: rgba(255, 255, 255, 0.48);
@@ -29,7 +28,7 @@
     --success: #10b981;
     --danger: #ef4444;
 
-    /* Dynamic Aliases */
+
     --pri: var(--text-main);
     --sec: var(--glass-fullpage);
     --tri1: var(--btn-bg);
@@ -41,7 +40,6 @@
     --text-sub: var(--text-muted);
 }
 
-/* Dark Theme - Deep Atmospheric Obsidian Glass */
 html.dark-theme,
 body.dark-theme {
     --glass-fullpage: rgba(10, 15, 26, 0.78);
@@ -100,9 +98,8 @@ body {
     overflow-x: hidden;
 }
 
-/* ===================================================
-   NAVIGATION BAR (Liquid Glass Header)
-====================================================== */
+
+
 nav {
     position: fixed;
     top: 0;
@@ -229,7 +226,7 @@ nav {
     transform: rotate(-90deg) scale(0.4);
 }
 
-/* Dark Mode Toggle Switch State */
+
 .theme-toggle.dark-mode {
     background-color: rgba(20, 28, 48, 0.8);
     border-color: rgba(255, 255, 255, 0.25);
@@ -262,9 +259,8 @@ nav {
     transform: rotate(0deg) scale(1);
 }
 
-/* ===================================================
-   BACKGROUND SKY (Dynamic Wallpaper & Ambient Filter)
-====================================================== */
+
+
 .bg-sky {
     z-index: 1;
     position: fixed;
@@ -319,9 +315,8 @@ body.dark-theme .bg-sky::after {
     opacity: 1;
 }
 
-/* ===================================================
-   DASHBOARD SECTION (Weather + Minimalist Sidebar)
-====================================================== */
+
+
 section.allElems {
     min-height: calc(100vh - 60px);
     width: 100%;
@@ -414,9 +409,7 @@ header .header2 h3 {
     opacity: 0.88;
 }
 
-/* ===================================================
-   MINIMALIST FLOATING SIDEBAR (Individual Liquid Glass Cards)
-====================================================== */
+
 .allFeatures {
     background: transparent;
     backdrop-filter: none;
@@ -511,9 +504,8 @@ header .header2 h3 {
     white-space: nowrap;
 }
 
-/* ===================================================
-   FULLSCREEN MODAL OVERLAYS (Atmospheric Liquid Glass)
-====================================================== */
+
+
 .fullElem {
     height: 100%;
     width: 100%;
@@ -578,9 +570,8 @@ header .header2 h3 {
     letter-spacing: -0.4px;
 }
 
-/* ===================================================
-   1. TODO LIST SECTION
-====================================================== */
+
+
 .todo-list-fullpage .todo-container {
     width: 100%;
     min-height: 75%;
@@ -812,9 +803,7 @@ header .header2 h3 {
     color: var(--text-main);
 }
 
-/* ===================================================
-   2. DAILY PLANNER SECTION (Liquid Glass Agenda Grid)
-====================================================== */
+
 .daily-planner-fullpage .day-planner {
     background-color: var(--glass-card);
     backdrop-filter: blur(20px) saturate(160%);
@@ -912,9 +901,7 @@ header .header2 h3 {
     opacity: 0.6;
 }
 
-/* ===================================================
-   3. MOTIVATION QUOTE SECTION
-====================================================== */
+
 .motivational-fullpage {
     overflow: hidden;
     padding: 0;
@@ -1053,9 +1040,7 @@ header .header2 h3 {
     scale: 0.96;
 }
 
-/* ===================================================
-   4. POMODORO TIMER SECTION
-====================================================== */
+
 .pomodoro-fullpage {
     overflow: hidden;
     padding: 0;
@@ -1386,11 +1371,7 @@ header .header2 h3 {
     filter: brightness(1.1);
 }
 
-/* ===================================================
-   RESPONSIVE BREAKPOINTS (Tablets, iPads, Mobile, Desktop)
-====================================================== */
 
-/* Touch and mobile responsiveness optimizations */
 button,
 .elem,
 .theme-toggle,
@@ -1399,15 +1380,16 @@ textarea {
     touch-action: manipulation;
 }
 
-/* Tablets, iPads & Medium Screens (<= 1024px) */
+
 @media (max-width: 1024px) {
-    /* Completely eliminate video decoding & 30MB GIF layers on mobile */
+
+
     .elem .elem-img-wrapper video,
     .bg-sky #sec {
         display: none !important;
     }
 
-    /* Reduce GPU Gaussian blur passes from 24px-35px down to lightweight 8px for 60fps mobile rendering */
+
     .nav-in,
     .theme-toggle,
     header .weather,
@@ -1549,7 +1531,7 @@ textarea {
     }
 }
 
-/* Small Phones (<= 480px) */
+
 @media (max-width: 480px) {
     .nav-in h2 {
         font-size: 18px;
