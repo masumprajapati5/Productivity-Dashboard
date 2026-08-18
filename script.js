@@ -28,7 +28,6 @@ function openFeatures() {
         });
     });
 
-    // Keyboard support: Escape closes any open feature overlay
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             closeAllFeatures();
@@ -39,7 +38,8 @@ openFeatures();
 
 function setupVideoPreviews() {
     var isDesktopHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (!isDesktopHover) return; // Never initialize, download, or decode video threads on touch/mobile devices
+    if (!isDesktopHover) return; 
+
 
     var allElems = document.querySelectorAll('.elem');
     allElems.forEach(function (elem) {
@@ -51,7 +51,7 @@ function setupVideoPreviews() {
                 video.src = video.dataset.src;
             }
             if (video.src) {
-                video.play().catch(function () {});
+                video.play().catch(function () { });
             }
         });
 
@@ -223,7 +223,7 @@ function dailyPlanner() {
     }
 
     renderPlanner();
-    // Re-check current hour highlight smoothly without re-rendering inputs
+
     setInterval(updateCurrentHour, 60000);
 }
 dailyPlanner();
@@ -414,7 +414,7 @@ function weatherfunctionality() {
             var response = await fetch(url);
             if (!response.ok) throw new Error(`Open-Meteo API returned ${response.status}`);
             var data = await response.json();
-            
+
             if (data && data.current) {
                 var current = data.current;
                 if (header2Temp) header2Temp.innerHTML = `${Math.round(current.temperature_2m)}°C`;
@@ -423,7 +423,7 @@ function weatherfunctionality() {
                 if (header2humidity) header2humidity.innerHTML = `Humidity: ${current.relative_humidity_2m}%`;
                 var feelsLike = Math.round(current.apparent_temperature);
                 if (header2precipitation) header2precipitation.innerHTML = `Feels Like: ${feelsLike}°C`;
-                
+
                 if (header1Location) {
                     if (customLocation) {
                         header1Location.innerHTML = customLocation;
@@ -477,7 +477,7 @@ function weatherfunctionality() {
         if (currentBg !== imgFirst) {
             currentBg = imgFirst;
             if (firstEl) firstEl.src = imgFirst;
-            // Only load 30MB animated GIFs on desktop devices with hover support
+
             if (secEl && isDesktopHover && imgSec) {
                 secEl.src = imgSec;
             }
