@@ -228,6 +228,7 @@ nav {
 
 
 .theme-toggle.dark-mode {
+    /* font-size: 14px; */
     background-color: rgba(20, 28, 48, 0.8);
     border-color: rgba(255, 255, 255, 0.25);
 }
