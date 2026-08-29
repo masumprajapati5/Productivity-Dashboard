@@ -210,6 +210,7 @@ nav {
 .theme-toggle .knob-icon-sun,
 .theme-toggle .knob-icon-moon {
     position: absolute;
+    /* font-size: 15px; */
     font-size: 15px;
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
 }
@@ -218,21 +219,25 @@ nav {
     color: #0f172a;
     opacity: 1;
     transform: rotate(0deg) scale(1);
+    /* font-size: 15px; */
 }
 
 .theme-toggle .knob-icon-moon {
     color: #ffffff;
     opacity: 0;
     transform: rotate(-90deg) scale(0.4);
+    /* font-size: 15px; */
 }
 
 
 .theme-toggle.dark-mode {
+    /* font-size: 14px; */
     background-color: rgba(20, 28, 48, 0.8);
     border-color: rgba(255, 255, 255, 0.25);
 }
 
 .theme-toggle.dark-mode .track-icon.sun {
+    /* font-size: 15px; */
     color: #94a3b8;
     opacity: 0.6;
 }
