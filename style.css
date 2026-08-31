@@ -226,11 +226,11 @@ nav {
     color: #ffffff;
     opacity: 0;
     transform: rotate(-90deg) scale(0.4);
-    /* font-size: 15px; */
 }
 
 
 .theme-toggle.dark-mode {
+    /* font-size: 14px; */
     background-color: rgba(20, 28, 48, 0.8);
     border-color: rgba(255, 255, 255, 0.25);
 }
@@ -524,6 +524,7 @@ header .header2 h3 {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     transition: all 0.35s ease;
+    /* color: var(--text-main); */
 }
 
 .back {
@@ -672,6 +673,7 @@ header .header2 h3 {
     min-height: 350px;
     max-height: calc(100vh - 180px);
     border-radius: 15px;
+    /* cursor: pointer; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
